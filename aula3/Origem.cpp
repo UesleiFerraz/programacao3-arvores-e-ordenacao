@@ -34,9 +34,9 @@ int main()
 	arvore.posOrder();
 	cout << "\n--------------------------\n";
 
-	arvore.remove(6);
-  arvore.remove(4);
-  arvore.remove(2);
+	// arvore.remove(6);
+  // arvore.remove(4);
+  // arvore.remove(2);
   arvore.remove(8);
 
 	arvore.generateDotFile();

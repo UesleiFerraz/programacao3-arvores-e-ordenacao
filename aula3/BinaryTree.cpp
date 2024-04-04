@@ -75,12 +75,6 @@ Node* BinaryTree::insert(int value, Node *root)
     newNode->father = root;
   }
 
-  updateHeight(root);
-  if (!isBalanced(root))
-  {
-    return balance(root);
-  }
-
   return root;
 }
 
@@ -217,7 +211,6 @@ void BinaryTree::remove(Node* root, int value)
     {
       nodeToRemove->father->right = NULL;
     }
-    updateHeight(nodeToRemove->father);
     delete nodeToRemove;
   }
   else if (hasOneChild(nodeToRemove))
@@ -243,7 +236,6 @@ void BinaryTree::remove(Node* root, int value)
     }
 
     tempNode->father = nodeToRemove->father;
-    updateHeight(tempNode);
     delete nodeToRemove;
   }
   else 
@@ -251,12 +243,6 @@ void BinaryTree::remove(Node* root, int value)
     Node* maxNodeSubTree = getHigherNode(nodeToRemove->left);
     nodeToRemove->data = maxNodeSubTree->data;
     remove(nodeToRemove->left, maxNodeSubTree->data);
-  }
-
-  updateHeight(root);
-  if (!isBalanced(root))
-  {
-    balance(root);
   }
 }
 
