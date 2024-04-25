@@ -5,20 +5,20 @@
 
 using namespace std;
 
+int generateRandomNumber(int min, int max)
+{
+  return rand() % (max - min + 1) + min;
+}
+
 int main()
 {
 	BinaryTree arvore;
+
+  for (int i = 0; i < 100; i++)
+  {
+    arvore.insert(generateRandomNumber(1, 100));
+  }
 	
-	arvore.insert(2);
-	arvore.insert(4);
-	arvore.insert(6);
-	arvore.insert(8);
-  arvore.insert(10);
-  arvore.insert(12);
-  arvore.insert(14);
-  arvore.insert(16);
-	arvore.insert(18);
-  arvore.insert(20);
 
 	cout << "Caminhamento pre-ordem: ";
 	arvore.preOrder();
@@ -33,11 +33,6 @@ int main()
 	cout << "Caminhamento pos-ordem: ";
 	arvore.posOrder();
 	cout << "\n--------------------------\n";
-
-	// arvore.remove(6);
-  // arvore.remove(4);
-  // arvore.remove(2);
-  arvore.remove(8);
 
 	arvore.generateDotFile();
 
